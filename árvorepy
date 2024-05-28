@@ -1,0 +1,27 @@
+class No:
+    def __init__(self, dado):
+        self.dado = dado
+        self.filhos = []
+
+def main():
+    raiz = No("Setor de Atuação")
+    setores = {
+        "Tecnologia": ["Apple", "Microsoft", "Google"],
+        "Saúde": ["Johnson & Johnson", "Pfizer", "Novartis"],
+        "Alimentação": ["Nestlé", "Coca-Cola", "McDonald's"]
+    }
+
+    for setor, empresas in setores.items():
+        no_setor = No(setor)
+        raiz.filhos.append(no_setor)
+        for empresa in empresas:
+            no_setor.filhos.append(No(empresa))
+    print("Árvore de Decisão:")
+    print("- Setor de Atuação")
+    for filho in raiz.filhos:
+        print("  -", filho.dado)
+        for empresa in filho.filhos:
+            print("    -", empresa.dado)
+
+if __name__ == "__main__":
+    main()
